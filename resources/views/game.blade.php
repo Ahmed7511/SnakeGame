@@ -34,9 +34,30 @@
                               let td = document.getElementById(td_id);
                                   td.style.backgroundColor = "yellow";
                               }
+                              for(let s = 0; s < game["snakes"].length; ++s)
+                         {
+                              let snake = game["snakes"][s];
+                              //console.log(snake)
+                                     for(let e = 0; e < snake["positions"].length; ++e)
+                                           {
+                                               let pos = snake["positions"][e];
+                                               let row = pos["row"];
+                                                let col = pos["col"];
+                                               // console.log(pos)
+                                               let td_id =  row + "" + col;
+                                                  let td = document.getElementById(td_id);
+                                                    td.style.backgroundColor = "green";
+                                      } 
+                          }
+                          document.onkeydown = on_key_down;
                     }
                         window.onload = on_load;
-                 
+                 function on_key_down(e)
+                            {
+                                 e = e || window.event;
+                                    console.log(e);
+                                  console.log(e.key);//e.key == "ArrowLeft" ou bien "ArrowRight" ou bien "ArrowUp" ou bien "ArrowDown"
+                             }
          </script>
 </body>
 </html>

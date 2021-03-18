@@ -14,7 +14,7 @@ class CreateGamesTable extends Migration
     public function up()
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('rows')->unsigned();// nombre de lignes dans la grille du jeu
             $table->integer('cols')->unsigned(); // nombre de colonnes dans la grille du jeu
             $table->integer('eggs')->unsigned(); // nombre d'oeufs dans la grille du jeu

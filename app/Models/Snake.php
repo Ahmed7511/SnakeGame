@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Position; 
 
 class Snake extends Model
 {
@@ -18,4 +19,8 @@ class Snake extends Model
                    {
                       return $this->belongsTo(User::class);
                    }
+           public function positions()
+           {
+               return $this->hasMany(Position::class)->orderBy('o_rder','ASC');
+           }        
 }
