@@ -23,4 +23,22 @@ class Game extends Model
     {
         return $this->HasMany(Snake::class);
     }
+
+    public static function object_at($game_id, $row, $col)
+    {
+        $eggs = Egg::where(['game_id' => $game_id, 'row' => $row, 'col' => $col])->get();
+          if(count($eggs) != 0)
+                  {
+                    return $eggs[0];
+                   }
+                          $snakes_ids = Snake::where(['game_id' => $game_id])->select(['id']);
+                          $snakes_positions = Position::whereIn('snake_id', $snakes_ids)->where(['row' => $row, 'col' => $col])->get();
+                        if(count($snakes_positions) != 0)
+                               {
+                                  $pos = $snakes_positions[0];
+                                 $snake = Snake::with(['positions'])->find($pos->snake_id);
+                                  return $snake;
+                                }
+                    return null;
+                   }
 }
