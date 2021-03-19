@@ -25,6 +25,8 @@ Route::get('/snake', function(){
 
 Route::middleware('auth')->get('/games', [GameController::class, "games"]);
 Route::middleware('auth')->get('/game/start/{id}', [GameController::class, "start"]);
+Route::middleware('auth')->get('/move', [SnakeController::class, "move"]);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

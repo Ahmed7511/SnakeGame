@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSnakesTable extends Migration
+class CreatePositionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateSnakesTable extends Migration
      */
     public function up()
     {
-        Schema::create('snakes', function (Blueprint $table) {
+        Schema::create('positions', function (Blueprint $table) {
             $table->increments('id');
-            // $table->timestamps();
-             $table->integer('game_id');
-             $table->integer('row');
-             $table->integer('col');
-             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
+            $table->integer('snake_id');
+            $table->integer('o_rder');
+            $table->integer('row');
+            $table->integer('col');
+            $table->foreign('snake_id')->references('id')->on('snakes')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,8 @@ class CreateSnakesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('snakes');
+        Schema::dropIfExists('positions');
     }
 }
+
+
