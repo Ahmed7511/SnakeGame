@@ -55,6 +55,10 @@
                          {
                                color_game_objects(game, {"egg" : "yellow", "snake" : "green"});
                          }
+                         function hide_game_object(game)
+                          {
+                            color_game_objects(game, {"egg" : "gray", "snake" : "gray"});
+                          }
                 
                 function handle_response_move(game)
                                 {
@@ -64,19 +68,20 @@
             
               function send_request_move(game, direction)
                                    {
-                                 let xhttp = new XMLHttpRequest();
-                                     xhttp.onreadystatechange = function ()
-                                       {
-                                         if (this.readyState == 4 && this.status == 200)
-                                          {
-                                       hide_game_object(game);
-                                        //console.log(xhttp.responseText);
-                                      handle_response_move(JSON.parse(xhttp.responseText));
-                                            }
-                                        };
-                                       xhttp.open("GET", "/move?game_id=" + game["id"] + "&direction=" + direction, true);
-                                       xhttp.send();
-                                     }
+                                          let xhttp = new XMLHttpRequest(); 
+                                             xhttp.onreadystatechange = function ()
+                                                    {
+                                                          if (this.readyState == 4 && this.status == 200)
+                                                            { 
+                                                                  hide_game_object(game);
+                                                                 // console.log(xhttp.responseText);
+                                                                   handle_response_move(JSON.parse(xhttp.responseText));
+                                                               }
+                                                      };
+                                               xhttp.open("GET", "/move?game_id=" + game["id"] + "&direction=" + direction, true);
+                                                xhttp.send();
+                                    
+                                      }
                 function on_key_down(e)
                             { 
                                 e = e || window.event;
