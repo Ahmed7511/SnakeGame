@@ -11,7 +11,7 @@ use App\Models\Position;
 class Position extends Model
 {
     use HasFactory;
-    protected $fillable =['snake_id','order','row','col'];
+    protected $fillable =['snake_id','o_rder','row','col'];
     public $timestamps = false;
 
     public function snake()
