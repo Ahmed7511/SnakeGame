@@ -58,6 +58,7 @@
                          function hide_game_object(game)
                           {
                             color_game_objects(game, {"egg" : "gray", "snake" : "gray"});
+                            window.location.reload ; 
                           }
                 
                 function handle_response_move(game)

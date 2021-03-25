@@ -40,6 +40,7 @@ class Snake extends Model
                {
                    //supprimer le snake qui a bougé vers une case qui contient un snake
                    $this->delete();
+                   
                }
                else if($obj instanceof Egg)
                {
