@@ -28,7 +28,7 @@ class Position extends Model
                     case "ArrowRight":
                          $this->col += 1;
                         break;
-                    case "ArrowUP":
+                    case "ArrowUp":
                          $this->row -= 1;
                           break;
                     case "ArrowDown":
